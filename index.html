@@ -1,0 +1,790 @@
+<title>Sri Lanka Credit Card Deals</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&display=swap">
+<style>
+/* ── TOKENS (matches run-lka design system) ── */
+:root{
+  --bg:#f3f6f5;
+  --surface:#ffffff;
+  --fg:#1e2d2b;
+  --muted:#5d6e6b;
+  --line:#d8e3e1;
+  --accent:#137a6e;
+  --brand:#1a9e8f;
+  --gold:#d9a441;
+  --dining:#c45c00;    --dining-bg:#fef0e3;
+  --shopping:#1a6635;  --shopping-bg:#e4f5eb;
+  --travel:#1a4ea0;    --travel-bg:#e4edfb;
+  --health:#a02020;    --health-bg:#fde8e8;
+  --other:#4e2fa0;     --other-bg:#ede8fb;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#141f1d; --surface:#1e2d2b; --fg:#e8efed; --muted:#9aaba7; --line:#2e403d;
+    --accent:#3cc2b1; --brand:#3cc2b1; --gold:#e0b25a;
+    --dining:#f0955a;    --dining-bg:#2d1a0a;
+    --shopping:#60c87a;  --shopping-bg:#0d2618;
+    --travel:#7fb0e6;    --travel-bg:#0d1a30;
+    --health:#e07070;    --health-bg:#2a0d0d;
+    --other:#a080e8;     --other-bg:#1a0d2a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141f1d; --surface:#1e2d2b; --fg:#e8efed; --muted:#9aaba7; --line:#2e403d;
+  --accent:#3cc2b1; --brand:#3cc2b1; --gold:#e0b25a;
+  --dining:#f0955a;    --dining-bg:#2d1a0a;
+  --shopping:#60c87a;  --shopping-bg:#0d2618;
+  --travel:#7fb0e6;    --travel-bg:#0d1a30;
+  --health:#e07070;    --health-bg:#2a0d0d;
+  --other:#a080e8;     --other-bg:#1a0d2a;
+  color-scheme:dark;
+}
+
+/* ── RESET & BASE ── */
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--body);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  padding-left:max(0px,env(safe-area-inset-left,0px));
+  padding-right:max(0px,env(safe-area-inset-right,0px));
+}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+/* ── HEADER ── */
+.site-header{
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+  padding:40px max(16px,env(safe-area-inset-left,0px)) 32px;
+}
+.site-header-inner{max-width:1100px;margin:0 auto}
+.site-header .eyebrow{margin-bottom:10px}
+.site-header h1{
+  font-family:var(--display);font-weight:800;
+  font-size:clamp(2.4rem,6vw,4rem);
+  line-height:.94;margin:0 0 12px;
+  text-transform:uppercase;text-wrap:balance;color:var(--fg);
+}
+.site-header h1 em{color:var(--gold);font-style:normal}
+.header-sub{color:var(--muted);margin:0 0 14px;max-width:60ch;font-size:.95rem;line-height:1.6}
+.header-refresh{
+  display:flex;align-items:center;gap:6px;
+  font-size:.8rem;color:var(--muted);
+}
+.refresh-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#22c55e;flex-shrink:0;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar{
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+  padding-block:10px;
+  padding-inline:max(16px,env(safe-area-inset-left,0px));
+}
+.filter-inner{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:8px}
+.filter-row{display:grid;grid-template-columns:80px 1fr;align-items:flex-start;gap:8px}
+.filter-label{
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.1em;font-size:.78rem;color:var(--muted);padding-top:5px;
+}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+
+/* Apple-style folder chip */
+.chip{
+  font-family:var(--body);font-size:.82rem;font-weight:600;
+  border:none;border-radius:20px;
+  padding:5px 14px;cursor:pointer;
+  background:rgba(120,120,128,0.12);color:var(--fg);
+  transition:all .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.chip:hover{background:rgba(120,120,128,0.22)}
+.chip.active{background:var(--accent);color:#fff;font-weight:700}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .chip{background:rgba(120,120,128,0.22)}
+  :root:not([data-theme="light"]) .chip:hover{background:rgba(120,120,128,0.32)}
+}
+:root[data-theme="dark"] .chip{background:rgba(120,120,128,0.22)}
+:root[data-theme="dark"] .chip:hover{background:rgba(120,120,128,0.32)}
+
+/* ── EYEBROW (shared) ── */
+.eyebrow{
+  font-family:var(--display);text-transform:uppercase;
+  letter-spacing:.14em;font-size:.85rem;
+  color:var(--brand);font-weight:700;margin-bottom:8px;
+}
+
+/* ── DISCLAIMER ── */
+.disclaimer{
+  background:#fffbeb;border-bottom:1px solid #e8d060;
+  padding-block:10px;
+  padding-inline:max(16px,env(safe-area-inset-left,0px));
+}
+.disclaimer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:flex-start;gap:10px}
+.disc-icon{font-size:14px;flex-shrink:0;margin-top:2px}
+.disc-text{font-size:.8rem;color:#7a5a00;line-height:1.55}
+.disc-text strong{font-weight:700;color:#5a4000}
+
+/* ── WRAP ── */
+.wrap{
+  max-width:1100px;margin:0 auto;
+  padding-inline:max(16px,env(safe-area-inset-left,0px));
+  padding-block:28px 48px;
+  display:grid;gap:32px;
+  min-width:0;
+}
+.wrap>section,.wrap>div{min-width:0}
+
+.section-hd{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.section-title{
+  font-family:var(--display);font-weight:800;
+  text-transform:uppercase;letter-spacing:.06em;font-size:1.35rem;color:var(--fg);
+}
+.section-sub{font-size:.85rem;color:var(--muted)}
+
+/* ── MARQUEE (Today's Deals) ── */
+.marquee-outer{
+  position:relative;
+  width:100%;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 95%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0%,#000 5%,#000 95%,transparent 100%);
+}
+.marquee-track{
+  display:flex;gap:12px;width:max-content;
+  animation:scroll-l 40s linear infinite;
+  will-change:transform;
+}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── DEAL CARD (marquee) ── */
+.deal{
+  flex-shrink:0;width:230px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:4px solid var(--c,var(--brand));
+  border-radius:4px;
+  padding:13px 14px;
+  display:flex;flex-direction:column;gap:7px;
+  transition:transform .15s;cursor:default;
+}
+.deal:hover{transform:translateY(-2px)}
+.deal-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.bank-tag{
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;font-size:.72rem;
+  padding:2px 7px;border-radius:3px;
+  background:var(--cb,#e8f0ef);color:var(--c,var(--accent));
+}
+.disc-chip{
+  font-family:var(--display);font-weight:800;font-size:1rem;
+  letter-spacing:-.01em;white-space:nowrap;
+  padding:2px 8px;border-radius:3px;
+  background:var(--cb,#e8f0ef);color:var(--c,var(--accent));
+}
+.deal-title{font-size:.85rem;font-weight:700;color:var(--fg);line-height:1.3}
+.deal-merchant{font-size:.78rem;color:var(--muted)}
+.deal-foot{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.cat-pill{
+  font-size:.72rem;font-weight:700;padding:2px 7px;border-radius:99px;
+  background:var(--cb);color:var(--c);
+}
+.deal-date{font-size:.72rem;color:var(--muted)}
+.expiry-tag{
+  font-size:.72rem;font-weight:700;color:#a02020;
+  background:#fde8e8;padding:2px 7px;border-radius:99px;
+}
+
+/* ── CALENDAR ── */
+.cal-wrap{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:6px;overflow:hidden;
+  width:100%;min-width:0;
+}
+.cal-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-bottom:1px solid var(--line);
+}
+.cal-nav-left{display:flex;align-items:center;gap:6px}
+.cal-btn{
+  font:inherit;font-weight:700;
+  background:none;border:1px solid var(--line);
+  border-radius:4px;width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--muted);font-size:1.2rem;
+  transition:all .12s;
+}
+.cal-btn:hover{border-color:var(--brand);color:var(--brand)}
+.cal-month{
+  font-family:var(--display);font-weight:800;text-transform:uppercase;
+  letter-spacing:.06em;font-size:1.3rem;color:var(--fg);
+}
+.cal-today-btn{
+  font:inherit;font-size:.78rem;font-weight:700;
+  background:none;border:1px solid var(--line);border-radius:4px;
+  padding:3px 10px;cursor:pointer;color:var(--muted);
+  transition:all .12s;
+}
+.cal-today-btn:hover{border-color:var(--brand);color:var(--brand)}
+
+/* Legend */
+.cal-legend{
+  display:flex;gap:12px;flex-wrap:wrap;
+  padding:8px 16px;border-bottom:1px solid var(--line);
+  background:var(--bg);
+}
+.cal-leg-item{display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted);cursor:default}
+.cal-leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+
+/* Grid */
+.cal-grid{
+  display:grid;
+  grid-template-columns:repeat(7,calc(100%/7));
+  width:100%;
+  table-layout:fixed;
+}
+.cal-dow{
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;font-size:.7rem;color:var(--muted);
+  padding:7px 2px;text-align:center;
+  border-bottom:1px solid var(--line);border-right:1px solid var(--line);
+  background:var(--bg);overflow:hidden;
+}
+.cal-dow:last-child{border-right:none}
+.cal-cell{
+  min-height:80px;padding:6px 5px 5px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  display:flex;flex-direction:column;gap:3px;
+  cursor:default;overflow:hidden;
+}
+.cal-cell.has-offers{cursor:pointer}
+.cal-cell.has-offers:hover{background:rgba(26,158,143,0.04)}
+.cal-cell:nth-child(7n){border-right:none}
+.cal-cell.out{background:var(--bg)}
+.cal-cell.out .cal-dn{color:var(--line)}
+.cal-cell.past-date{background:var(--bg)}
+.cal-cell.past-date .cal-dn{color:var(--muted);opacity:.5}
+.cal-cell.past-date .cal-ev-list{opacity:.35}
+.cal-cell.today-c{background:rgba(26,158,143,0.06)}
+:root[data-theme="dark"] .cal-cell.today-c,:root:not([data-theme="light"]) .cal-cell.today-c{background:rgba(60,194,177,0.08)}
+
+/* Day number */
+.cal-dn{
+  font-variant-numeric:tabular-nums;font-weight:700;font-size:.85rem;color:var(--fg);
+  width:24px;height:24px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.cal-cell.today-c .cal-dn{background:var(--brand);color:#fff}
+
+/* Event rows — category bars */
+.cal-ev-list{display:flex;flex-direction:column;gap:2px;margin-top:2px}
+.cal-ev{
+  display:flex;align-items:center;gap:4px;
+  font-size:.7rem;font-weight:600;color:var(--fg);
+  padding:1px 0;
+  cursor:pointer;line-height:1.3;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.cal-ev-bar{width:3px;height:12px;border-radius:2px;flex-shrink:0;background:var(--c,var(--brand))}
+.cal-ev-text{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.cal-ev:hover .cal-ev-text{text-decoration:underline}
+
+/* Count summary below calendar */
+.cal-summary{
+  padding:10px 16px;border-top:1px solid var(--line);
+  font-family:var(--display);font-weight:700;text-transform:uppercase;
+  letter-spacing:.06em;font-size:.85rem;color:var(--muted);
+  background:var(--bg);
+}
+
+/* ── MODAL ── */
+.modal-back{
+  display:none;position:fixed;inset:0;
+  background:rgba(5,12,10,.55);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  z-index:500;justify-content:center;align-items:center;padding:20px;
+}
+.modal-back.open{display:flex}
+.modal{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:6px;max-width:480px;width:100%;
+  max-height:80vh;overflow-y:auto;
+  padding:22px 24px;animation:pop .18s ease;
+  border-top:4px solid var(--brand);
+}
+@keyframes pop{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+.modal-hd{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+.modal-title{
+  font-family:var(--display);font-weight:800;text-transform:uppercase;
+  letter-spacing:.04em;font-size:1.3rem;color:var(--fg);line-height:1;
+}
+.modal-x{
+  font:inherit;background:none;border:1px solid var(--line);
+  color:var(--muted);border-radius:4px;
+  padding:4px 10px;cursor:pointer;font-size:.85rem;flex-shrink:0;
+}
+.modal-x:hover{border-color:var(--accent);color:var(--accent)}
+.modal-list{display:flex;flex-direction:column;gap:10px}
+.modal-item{
+  border:1px solid var(--line);
+  border-left:4px solid var(--c,var(--brand));
+  border-radius:4px;padding:12px 14px;
+}
+.modal-disc{
+  font-family:var(--display);font-weight:800;font-size:1.3rem;
+  color:var(--c,var(--accent));letter-spacing:-.01em;
+}
+.modal-note{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:10px;padding-top:8px;border-top:1px solid var(--line)}
+
+/* ── BANK TAG COLORS ── */
+.bk-combank   {--c:#a83800;--cb:#fff3ee}
+.bk-hnb       {--c:#806000;--cb:#fdf8e6}
+.bk-sampath   {--c:#4020a0;--cb:#f0ecfa}
+.bk-peoples   {--c:#106040;--cb:#e8f9f0}
+.bk-boc       {--c:#1e3fa0;--cb:#eef2fe}
+.bk-dfcc      {--c:#006090;--cb:#e6f4fb}
+.bk-ndb       {--c:#005a38;--cb:#e6f5ef}
+.bk-ntb       {--c:#085a80;--cb:#e6f9fc}
+.bk-seylan    {--c:#a03a10;--cb:#fff2ec}
+.bk-pan_asia  {--c:#901530;--cb:#feeef1}
+.bk-cargills  {--c:#c00020;--cb:#fde8ea}
+.bk-amana     {--c:#0a6050;--cb:#e6f5f2}
+.bk-union     {--c:#5a2080;--cb:#f2ecfa}
+.bk-sc        {--c:#006878;--cb:#e6f4f6}
+
+/* ── CATEGORY COLORS ── */
+.cat-dining   {--c:var(--dining);--cb:var(--dining-bg)}
+.cat-shopping {--c:var(--shopping);--cb:var(--shopping-bg)}
+.cat-travel   {--c:var(--travel);--cb:var(--travel-bg)}
+.cat-health   {--c:var(--health);--cb:var(--health-bg)}
+.cat-other    {--c:var(--other);--cb:var(--other-bg)}
+
+/* ── BRAND FOOTER ── */
+.brandfoot{
+  border-top:3px solid var(--brand);
+  padding-top:14px;margin-top:4px;
+}
+.brandfoot-line1{
+  display:flex;align-items:center;gap:8px;
+  font-size:.92rem;font-weight:700;color:var(--fg);
+  margin-bottom:6px;
+}
+.brandfoot-line1 a{color:var(--brand);text-decoration:none;font-weight:800}
+.brandfoot-line1 a:hover{text-decoration:underline}
+.brandfoot-goldot{color:var(--gold);font-size:1.1rem;line-height:1}
+.brandfoot-copy{
+  font-size:.78rem;color:var(--muted);line-height:1.55;max-width:72ch;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:680px){
+  /* Header */
+  .site-header{padding:24px max(16px,env(safe-area-inset-left,0px)) 20px}
+  .site-header h1{font-size:clamp(1.8rem,8vw,2.4rem)}
+  .header-sub{font-size:.88rem}
+
+  /* Filters */
+  .filter-row{grid-template-columns:60px 1fr}
+  .filter-label{font-size:.72rem}
+  .chip{font-size:.78rem;padding:4px 11px}
+
+  /* Marquee */
+  .deal{width:190px}
+
+  /* Calendar — compact cells */
+  .cal-cell{min-height:52px;padding:4px 3px 3px}
+  .cal-cell.past-date .cal-dn{opacity:.45}
+  .cal-ev-list{gap:1px}
+  .cal-ev{font-size:.64rem}
+  .cal-ev-bar{width:3px;height:10px}
+  .cal-dn{font-size:.78rem;width:20px;height:20px}
+  .cal-dow{font-size:.64rem;letter-spacing:.02em;padding:5px 1px}
+  .cal-month{font-size:1.1rem}
+  .cal-legend{gap:8px;padding:6px 12px}
+  .cal-leg-item{font-size:.7rem}
+
+  /* Footer */
+  .brandfoot-copy{font-size:.74rem}
+
+  /* Wrap spacing */
+  .wrap{padding-block:20px 36px;gap:24px}
+}
+</style>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="site-header-inner">
+    <div class="eyebrow">Dining · Shopping · Travel · Health</div>
+    <h1>Sri Lanka · Credit Card <em>Deals</em></h1>
+    <p class="header-sub">Your daily guide to credit card promotions across all major Sri Lankan banks — dining, shopping, travel, health and more.</p>
+    <div class="header-refresh">
+      <span class="refresh-dot"></span>
+      <span id="refreshLine">Loading…</span>
+    </div>
+  </div>
+</header>
+
+<!-- FILTER BAR (under hero) -->
+<div class="filter-bar">
+  <div class="filter-inner">
+    <div class="filter-row">
+      <span class="filter-label">Category</span>
+      <div class="chips" id="catChips">
+        <button class="chip active" data-type="cat" data-val="all">All</button>
+        <button class="chip" data-type="cat" data-val="Dining">Dining</button>
+        <button class="chip" data-type="cat" data-val="Shopping">Shopping</button>
+        <button class="chip" data-type="cat" data-val="Travel">Travel</button>
+        <button class="chip" data-type="cat" data-val="Health">Health</button>
+        <button class="chip" data-type="cat" data-val="Other">Other</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Bank</span>
+      <div class="chips" id="bankChips">
+        <button class="chip active" data-type="bank" data-val="all">All Banks</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disclaimer-inner">
+    <span class="disc-icon">⚠️</span>
+    <p class="disc-text">
+      <strong>Independent aggregation only.</strong> This page is not affiliated with, endorsed by, or acting on behalf of any bank or financial institution. All promotion details are sourced from publicly available information on official bank websites and are the intellectual property of the respective banks. Information may be incomplete, inaccurate, or subject to change without notice. <strong>Always verify current terms, conditions, and eligibility directly with your bank before redeeming any offer.</strong> The publishers accept no liability for any loss or inconvenience arising from reliance on information published here.
+    </p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="wrap">
+
+  <!-- TODAY'S DEALS -->
+  <section>
+    <div class="section-hd">
+      <span class="section-title">Today's Deals</span>
+      <span class="section-sub" id="todaySub"></span>
+    </div>
+    <div class="marquee-outer" id="marqueeOuter">
+      <div class="marquee-track" id="marqueeTrack"></div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section>
+    <div class="section-hd">
+      <span class="section-title">Monthly Calendar</span>
+      <span class="section-sub">Tap a date to see active offers</span>
+    </div>
+    <div class="cal-wrap">
+      <div class="cal-nav">
+        <div class="cal-nav-left">
+          <button class="cal-btn" id="calPrev">&#8249;</button>
+          <span class="cal-month" id="calMonthLabel"></span>
+          <button class="cal-btn" id="calNext">&#8250;</button>
+        </div>
+        <button class="cal-today-btn" id="calTodayBtn">Today</button>
+      </div>
+      <div class="cal-legend">
+        <div class="cal-leg-item"><span class="cal-leg-dot" style="background:var(--dining)"></span>Dining</div>
+        <div class="cal-leg-item"><span class="cal-leg-dot" style="background:var(--shopping)"></span>Shopping</div>
+        <div class="cal-leg-item"><span class="cal-leg-dot" style="background:var(--travel)"></span>Travel</div>
+        <div class="cal-leg-item"><span class="cal-leg-dot" style="background:var(--health)"></span>Health</div>
+        <div class="cal-leg-item"><span class="cal-leg-dot" style="background:var(--other)"></span>Other</div>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-summary" id="calSummary"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="brandfoot">
+    <div class="brandfoot-line1">A&nbsp;<a href="https://fuzentra.com" target="_blank" rel="noopener">fuzentra</a>&nbsp;initiative&nbsp;<span class="brandfoot-goldot">●</span></div>
+    <p class="brandfoot-copy">© 2026 fuzentra. Offer details are sourced from official bank websites and are the property of their respective institutions.</p>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-back" id="modalBack">
+  <div class="modal">
+    <div class="modal-hd">
+      <span class="modal-title" id="modalTitle"></span>
+      <button class="modal-x" id="modalX">Close</button>
+    </div>
+    <div class="modal-list" id="modalList"></div>
+    <p class="modal-note">Offer details sourced from bank websites and may have changed. Verify directly with your bank before redeeming.</p>
+  </div>
+</div>
+
+<script>
+// All 14 banks from the official list (excluding HSBC)
+const BANKS=[
+  {id:"combank",  name:"Commercial Bank",          url:"https://www.combank.lk/rewards-promotions"},
+  {id:"hnb",      name:"Hatton National Bank",     url:"https://www.hnb.lk/personal/credit-cards/offers"},
+  {id:"sampath",  name:"Sampath Bank",             url:"https://www.sampath.lk/en/promotions"},
+  {id:"peoples",  name:"People's Bank",            url:"https://www.peoplesbank.lk/special-offers/"},
+  {id:"boc",      name:"Bank of Ceylon",           url:"https://www.boc.lk/personal-banking/card-offers"},
+  {id:"dfcc",     name:"DFCC Bank",                url:"https://www.dfcc.lk/personal/credit-cards/"},
+  {id:"ndb",      name:"NDB Bank",                 url:"https://www.ndbbank.com/personal/cards/credit-cards"},
+  {id:"ntb",      name:"Nations Trust Bank",       url:"https://www.nationstrust.com/personal/cards/credit-cards"},
+  {id:"seylan",   name:"Seylan Bank",              url:"https://www.seylan.lk/promotions/cards"},
+  {id:"pan_asia", name:"Pan Asia Bank",            url:"https://www.pabcbank.com/personal/cards/"},
+  {id:"cargills", name:"Cargills Bank",            url:"https://www.cargillsbank.com/personal/cards/"},
+  {id:"amana",    name:"Amana Bank",               url:"https://www.amanabank.lk/personal/cards/"},
+  {id:"union",    name:"Union Bank",               url:"https://www.unionb.com/personal/cards/"},
+  {id:"sc",       name:"Standard Chartered",       url:"https://www.sc.com/lk/credit-cards/"}
+];
+
+const EMBEDDED={"updated":null,"offers":[
+  {"bank":"Commercial Bank","bank_id":"combank","title":"Up to 45% Off — Seasonal Dining Offers","discount":"45% Off","category":"Dining","merchant":"Selected Restaurants Island-wide","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.combank.lk/rewards-promotions"},
+  {"bank":"Commercial Bank","bank_id":"combank","title":"15% Off at Food & Restaurant Partners","discount":"15% Off","category":"Dining","merchant":"Partner Restaurants","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.combank.lk/rewards-promotions"},
+  {"bank":"Hatton National Bank","bank_id":"hnb","title":"20% Off Dining at HNB Card Partner Restaurants","discount":"20% Off","category":"Dining","merchant":"HNB Dining Partners","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.hnb.lk/personal/credit-cards/offers"},
+  {"bank":"Hatton National Bank","bank_id":"hnb","title":"Up to 25% Off at Partner Health & Wellness","discount":"25% Off","category":"Health","merchant":"Selected Hospitals & Pharmacies","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.hnb.lk/personal/credit-cards/offers"},
+  {"bank":"Sampath Bank","bank_id":"sampath","title":"12-Month 0% Installment Plans for Electronics","discount":"0% EPP","category":"Shopping","merchant":"Abans, Singer, Softlogic","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.sampath.lk/en/promotions"},
+  {"bank":"Sampath Bank","bank_id":"sampath","title":"Dining Privileges — Up to 30% Off","discount":"30% Off","category":"Dining","merchant":"Selected Partner Restaurants","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.sampath.lk/en/promotions"},
+  {"bank":"People's Bank","bank_id":"peoples","title":"Exclusive Discounts for People's Credit Cardholders","discount":"Up to 30% Off","category":"Shopping","merchant":"Partner Retailers Island-wide","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.peoplesbank.lk/special-offers/"},
+  {"bank":"Bank of Ceylon","bank_id":"boc","title":"25% Off Fresh Vegetables, Fruits & Seafood","discount":"25% Off","category":"Shopping","merchant":"Keells Super & Partner Supermarkets","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.boc.lk/personal-banking/card-offers"},
+  {"bank":"Bank of Ceylon","bank_id":"boc","title":"15% Off for BOC Credit & Debit Cardholders","discount":"15% Off","category":"Dining","merchant":"Selected Hotels & Restaurants","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.boc.lk/personal-banking/card-offers"},
+  {"bank":"DFCC Bank","bank_id":"dfcc","title":"10% Cashback on Online Shopping","discount":"10% Cashback","category":"Shopping","merchant":"Daraz, Amazon & Partner Online Stores","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.dfcc.lk/personal/credit-cards/"},
+  {"bank":"DFCC Bank","bank_id":"dfcc","title":"Special Travel Discounts with DFCC Visa","discount":"15% Off","category":"Travel","merchant":"Partner Hotels & Airlines","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.dfcc.lk/personal/credit-cards/"},
+  {"bank":"NDB Bank","bank_id":"ndb","title":"Dining & Lifestyle Offers for NDB Cardholders","discount":"20% Off","category":"Dining","merchant":"Selected Restaurants Colombo","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.ndbbank.com/personal/cards/credit-cards"},
+  {"bank":"Nations Trust Bank","bank_id":"ntb","title":"AmEx Membership Rewards — Accelerated Points on Travel","discount":"3x Points","category":"Travel","merchant":"All Travel & Airline Partners","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.nationstrust.com/personal/cards/credit-cards"},
+  {"bank":"Nations Trust Bank","bank_id":"ntb","title":"FriMi Card — 5% Cashback Every Friday","discount":"5% Cashback","category":"Shopping","merchant":"All Merchants (Fridays)","valid_from":"2026-05-01","valid_to":"2026-12-31","days_of_week":[5],"url":"https://www.nationstrust.com/personal/cards/credit-cards"},
+  {"bank":"Seylan Bank","bank_id":"seylan","title":"0% Installment Plans up to 24 Months","discount":"0% EPP","category":"Shopping","merchant":"Selected Electronics & Fashion Merchants","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.seylan.lk/promotions/cards"},
+  {"bank":"Seylan Bank","bank_id":"seylan","title":"5% Cashback on Fuel — Any Time, Any Day","discount":"5% Cashback","category":"Other","merchant":"All Fuel Stations","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.seylan.lk/promotions/cards"},
+  {"bank":"Seylan Bank","bank_id":"seylan","title":"Up to 50% Off at Anantaya Resorts & Spa","discount":"50% Off","category":"Travel","merchant":"Anantaya Resort Chilaw & Pasikudah","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.seylan.lk/promotions/cards"},
+  {"bank":"Pan Asia Bank","bank_id":"pan_asia","title":"Special Discounts at Healthcare Partners","discount":"15% Off","category":"Health","merchant":"Nawaloka, Lanka Hospitals","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.pabcbank.com/personal/cards/"},
+  {"bank":"Cargills Bank","bank_id":"cargills","title":"Earn Rewards at Cargills Food City","discount":"2x Points","category":"Shopping","merchant":"Cargills Food City Island-wide","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.cargillsbank.com/personal/cards/"},
+  {"bank":"Amana Bank","bank_id":"amana","title":"Shariah-Compliant Rewards on Daily Spend","discount":"1.5x Points","category":"Other","merchant":"All Merchants","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.amanabank.lk/personal/cards/"},
+  {"bank":"Union Bank","bank_id":"union","title":"Dining Discounts with Union Bank Visa","discount":"15% Off","category":"Dining","merchant":"Partner Restaurants","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.unionb.com/personal/cards/"},
+  {"bank":"Standard Chartered","bank_id":"sc","title":"Smart Card — 5% Cashback on Online & Contactless","discount":"5% Cashback","category":"Shopping","merchant":"All Online & Contactless Payments","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.sc.com/lk/credit-cards/"},
+  {"bank":"Standard Chartered","bank_id":"sc","title":"Travel Miles Card — Earn Miles on Every Spend","discount":"2x Miles","category":"Travel","merchant":"All Merchants","valid_from":"2026-05-01","valid_to":"2026-12-31","url":"https://www.sc.com/lk/credit-cards/"}
+]};
+
+let allOffers=[],filtered=[];
+let activeCat='all',activeBank='all';
+let calY,calM;
+
+const today=new Date();today.setHours(0,0,0,0);
+const todayISO=today.toISOString().slice(0,10);
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const catClass=c=>({Dining:'cat-dining',Shopping:'cat-shopping',Travel:'cat-travel',Health:'cat-health',Other:'cat-other'}[c]||'cat-other');
+const bkClass=id=>'bk-'+(id||'other');
+const fmtD=iso=>{const[,m,d]=iso.split('-');return`${parseInt(d)} ${MS[parseInt(m)-1]}`};
+const daysLeft=iso=>Math.round((new Date(iso+'T00:00:00')-today)/86400000);
+const isActive=o=>offerOnDate(o,todayISO);
+
+function dealCard(o){
+  const left=daysLeft(o.valid_to);
+  const expiring=left>=0&&left<=7;
+  const el=document.createElement('div');
+  el.className=`deal ${catClass(o.category)}`;
+  el.innerHTML=`
+    <div class="deal-top">
+      <span class="bank-tag ${bkClass(o.bank_id)}">${o.bank}</span>
+      <span class="disc-chip ${catClass(o.category)}">${o.discount}</span>
+    </div>
+    <div class="deal-title">${o.title}</div>
+    ${o.merchant?`<div class="deal-merchant">${o.merchant}</div>`:''}
+    <div class="deal-foot">
+      <span class="cat-pill ${catClass(o.category)}">${o.category}</span>
+      ${expiring?`<span class="expiry-tag">Ends in ${left}d</span>`:`<span class="deal-date">Until ${fmtD(o.valid_to)}</span>`}
+    </div>`;
+  return el;
+}
+
+function renderMarquee(){
+  const track=document.getElementById('marqueeTrack');
+  track.innerHTML='';
+  const active=filtered.filter(isActive);
+  document.getElementById('todaySub').textContent=active.length+' active today';
+  if(!active.length){
+    const outer=document.getElementById('marqueeOuter');
+    outer.style.mask='none';outer.style.webkitMaskImage='none';
+    track.innerHTML='<p style="color:var(--muted);font-size:.9rem;padding:16px 0">No active offers match the current filter.</p>';
+    return;
+  }
+  [...active,...active].forEach(o=>track.appendChild(dealCard(o)));
+  track.style.animationDuration=Math.max(24,active.length*5)+'s';
+}
+
+// Category colour map for calendar bars
+const CAT_COLOR={
+  Dining:'var(--dining)',Shopping:'var(--shopping)',
+  Travel:'var(--travel)',Health:'var(--health)',Other:'var(--other)'
+};
+
+function renderCalendar(){
+  const grid=document.getElementById('calGrid');
+  document.getElementById('calMonthLabel').textContent=MONTHS[calM]+' '+calY;
+  grid.innerHTML='';
+
+  // Mon-first day headers
+  ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach(d=>{
+    const el=document.createElement('div');el.className='cal-dow';el.textContent=d;grid.appendChild(el);
+  });
+
+  // Mon=0 offset: JS getDay() is Sun=0, so Mon=1 → offset = (getDay()+6)%7
+  const firstDow=(new Date(calY,calM,1).getDay()+6)%7; // 0=Mon
+  const dim=new Date(calY,calM+1,0).getDate();
+  const prevDim=new Date(calY,calM,0).getDate();
+
+  for(let i=firstDow-1;i>=0;i--)grid.appendChild(calCell(prevDim-i,true));
+  for(let d=1;d<=dim;d++){
+    const iso=`${calY}-${String(calM+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    grid.appendChild(calCell(d,false,iso===todayISO,iso));
+  }
+  const filled=firstDow+dim;
+  const rem=(7-(filled%7))%7;
+  for(let d=1;d<=rem;d++)grid.appendChild(calCell(d,true));
+
+  // Summary line
+  const monthISO=`${calY}-${String(calM+1).padStart(2,'0')}`;
+  const monthOffers=filtered.filter(o=>o.valid_from.slice(0,7)<=monthISO&&o.valid_to.slice(0,7)>=monthISO);
+  const uniqueOffers=new Set(monthOffers.map(o=>o.title)).size;
+  const sumEl=document.getElementById('calSummary');
+  sumEl.textContent=MONTHS[calM]+' '+calY+' · '+uniqueOffers+' offer'+(uniqueOffers!==1?'s':'')+' active';
+}
+
+// Returns true if offer applies to this specific date (handles days_of_week)
+function offerOnDate(o, iso){
+  if(o.valid_from>iso||o.valid_to<iso) return false;
+  if(o.days_of_week && o.days_of_week.length){
+    const dow=new Date(iso+'T00:00:00').getDay(); // 0=Sun,5=Fri
+    return o.days_of_week.includes(dow);
+  }
+  return true;
+}
+
+function calCell(day,other,isToday=false,iso=null){
+  const cell=document.createElement('div');
+  const isPast=iso&&iso<todayISO;
+  cell.className='cal-cell'
+    +(other?' out':'')
+    +(isToday?' today-c':'')
+    +(isPast&&!other?' past-date':'');
+
+  const dn=document.createElement('div');dn.className='cal-dn';dn.textContent=day;
+  cell.appendChild(dn);
+
+  if(iso&&!other){
+    const ofDay=filtered.filter(o=>offerOnDate(o,iso));
+    if(ofDay.length){
+      cell.classList.add('has-offers');
+      // Group by category — one bar per category, up to 4
+      const cats=[...new Set(ofDay.map(o=>o.category))];
+      const evList=document.createElement('div');evList.className='cal-ev-list';
+      cats.slice(0,4).forEach(cat=>{
+        const items=ofDay.filter(o=>o.category===cat);
+        const ev=document.createElement('div');
+        ev.className='cal-ev';
+        ev.title=items.map(o=>o.discount+' — '+o.title).join('\n');
+        const bar=document.createElement('span');
+        bar.className='cal-ev-bar';
+        bar.style.background=CAT_COLOR[cat]||'var(--brand)';
+        const txt=document.createElement('span');
+        txt.className='cal-ev-text';
+        txt.textContent=items.length>1?cat+' ('+items.length+')':items[0].discount;
+        ev.appendChild(bar);ev.appendChild(txt);
+        evList.appendChild(ev);
+      });
+      cell.appendChild(evList);
+      cell.onclick=()=>openModal(iso,ofDay);
+    }
+  }
+  return cell;
+}
+
+function openModal(iso,offers){
+  const[y,m,d]=iso.split('-');
+  document.getElementById('modalTitle').textContent=
+    `${parseInt(d)} ${MS[parseInt(m)-1]} ${y} · ${offers.length} Offer${offers.length>1?'s':''}`;
+  const list=document.getElementById('modalList');list.innerHTML='';
+  offers.forEach(o=>{
+    const el=document.createElement('div');
+    el.className=`modal-item ${catClass(o.category)}`;
+    el.innerHTML=`
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px">
+        <span class="bank-tag ${bkClass(o.bank_id)}">${o.bank}</span>
+        <span class="modal-disc ${catClass(o.category)}">${o.discount}</span>
+      </div>
+      <div style="font-weight:700;font-size:.9rem;color:var(--fg);margin-bottom:3px">${o.title}</div>
+      ${o.merchant?`<div style="font-size:.8rem;color:var(--muted);margin-bottom:3px">${o.merchant}</div>`:''}
+      <div style="font-size:.78rem;color:var(--muted);margin-bottom:8px">${fmtD(o.valid_from)} – ${fmtD(o.valid_to)}</div>
+      <a href="${o.url}" target="_blank" rel="noopener"
+        style="font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;color:var(--accent);text-decoration:none">
+        View on bank site →
+      </a>`;
+    list.appendChild(el);
+  });
+  document.getElementById('modalBack').classList.add('open');
+}
+document.getElementById('modalX').onclick=()=>document.getElementById('modalBack').classList.remove('open');
+document.getElementById('modalBack').onclick=e=>{if(e.target===document.getElementById('modalBack'))document.getElementById('modalBack').classList.remove('open')};
+
+function buildBankChips(){
+  const container=document.getElementById('bankChips');
+  BANKS.forEach(({id,name})=>{
+    const btn=document.createElement('button');
+    btn.className='chip';btn.dataset.type='bank';btn.dataset.val=id;
+    btn.textContent=name;container.appendChild(btn);
+  });
+}
+
+function applyFilter(){
+  filtered=allOffers.filter(o=>
+    (activeCat==='all'||o.category===activeCat)&&(activeBank==='all'||o.bank_id===activeBank)
+  );
+  renderMarquee();renderCalendar();
+}
+
+document.addEventListener('click',e=>{
+  const chip=e.target.closest('.chip');if(!chip)return;
+  const{type,val}=chip.dataset;
+  if(type==='cat'){
+    document.querySelectorAll('[data-type=cat]').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');activeCat=val;
+  }else if(type==='bank'){
+    document.querySelectorAll('[data-type=bank]').forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');activeBank=val;
+  }
+  applyFilter();
+});
+
+document.getElementById('calPrev').onclick=()=>{calM--;if(calM<0){calM=11;calY--}renderCalendar()};
+document.getElementById('calNext').onclick=()=>{calM++;if(calM>11){calM=0;calY++}renderCalendar()};
+document.getElementById('calTodayBtn').onclick=()=>{calY=today.getFullYear();calM=today.getMonth();renderCalendar()};
+
+function fmtNow(){
+  const d=new Date();
+  const hh=String(d.getHours()).padStart(2,'0');
+  const mm=String(d.getMinutes()).padStart(2,'0');
+  return `${d.getDate()} ${MS[d.getMonth()]} ${d.getFullYear()}, ${hh}:${mm}`;
+}
+
+// init
+const data=EMBEDDED;
+data.updated=fmtNow();
+allOffers=data.offers||[];
+const refreshEl=document.getElementById('refreshLine');
+if(refreshEl){
+  const n=allOffers.length;
+  refreshEl.textContent=`Last refreshed: ${data.updated} · ${n} offer${n!==1?'s':''} tracked`;
+}
+calY=today.getFullYear();calM=today.getMonth();
+buildBankChips();applyFilter();
+</script>
