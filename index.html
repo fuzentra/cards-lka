@@ -123,14 +123,19 @@ img{max-width:100%}
 
 /* ── DISCLAIMER ── */
 .disclaimer{
-  background:#fffbeb;border-bottom:1px solid #e8d060;
+  --disc-bg:#fffbeb;--disc-border:#e8d060;--disc-text:#7a5a00;--disc-strong:#5a4000;
+  background:var(--disc-bg);border-bottom:1px solid var(--disc-border);
   padding-block:10px;
   padding-inline:max(16px,env(safe-area-inset-left,0px));
 }
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .disclaimer{--disc-bg:#2a2000;--disc-border:#5a4a00;--disc-text:#c8a840;--disc-strong:#e8c860}
+}
+:root[data-theme="dark"] .disclaimer{--disc-bg:#2a2000;--disc-border:#5a4a00;--disc-text:#c8a840;--disc-strong:#e8c860}
 .disclaimer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:flex-start;gap:10px}
 .disc-icon{font-size:14px;flex-shrink:0;margin-top:2px}
-.disc-text{font-size:.8rem;color:#7a5a00;line-height:1.55}
-.disc-text strong{font-weight:700;color:#5a4000}
+.disc-text{font-size:.8rem;color:var(--disc-text);line-height:1.55}
+.disc-text strong{font-weight:700;color:var(--disc-strong)}
 
 /* ── WRAP ── */
 .wrap{
@@ -384,36 +389,63 @@ footer a:hover{text-decoration:underline}
 
 /* ── RESPONSIVE ── */
 @media(max-width:680px){
-  /* Header */
-  .site-header{padding:24px max(16px,env(safe-area-inset-left,0px)) 20px}
-  .site-header h1{font-size:clamp(1.8rem,8vw,2.4rem)}
-  .header-sub{font-size:.88rem}
+  /* Header — tighter vertical rhythm */
+  .site-header{padding:18px max(16px,env(safe-area-inset-left,0px)) 16px}
+  .site-header h1{font-size:clamp(1.7rem,9vw,2.4rem);margin-bottom:8px}
+  .header-sub{font-size:.83rem;margin-bottom:10px}
+  .header-refresh{font-size:.75rem}
+  .eyebrow{font-size:.76rem;margin-bottom:6px}
 
-  /* Filters */
-  .filter-row{grid-template-columns:60px 1fr}
-  .filter-label{font-size:.72rem}
-  .chip{font-size:.78rem;padding:4px 11px}
+  /* Filter bar — stack label above chips */
+  .filter-bar{padding-block:8px}
+  .filter-row{grid-template-columns:1fr;gap:4px}
+  .filter-label{padding-top:0;font-size:.7rem}
+  .chip{font-size:.76rem;padding:4px 10px}
+  .chips{gap:5px}
 
-  /* Marquee */
-  .deal{width:190px}
+  /* Disclaimer */
+  .disclaimer{padding-block:8px}
+  .disc-icon{font-size:13px}
+  .disc-text{font-size:.75rem}
 
-  /* Calendar — compact cells */
-  .cal-cell{min-height:52px;padding:4px 3px 3px}
-  .cal-cell.past-date .cal-dn{opacity:.45}
-  .cal-ev-list{gap:1px}
-  .cal-ev{font-size:.64rem}
-  .cal-ev-bar{width:3px;height:10px}
-  .cal-dn{font-size:.78rem;width:20px;height:20px}
-  .cal-dow{font-size:.64rem;letter-spacing:.02em;padding:5px 1px}
-  .cal-month{font-size:1.1rem}
-  .cal-legend{gap:8px;padding:6px 12px}
-  .cal-leg-item{font-size:.7rem}
+  /* Wrap — tighter top, sensible gap */
+  .wrap{padding-block:16px 32px;gap:16px}
+  .section-title{font-size:1.15rem}
+
+  /* Marquee — narrower cards */
+  .deal{width:175px;padding:10px 11px}
+  .deal-title{font-size:.8rem}
+  .disc-chip{font-size:.9rem}
+
+  /* Calendar nav — allow summary to wrap below on very small screens */
+  .cal-nav{padding:10px 12px;gap:6px;flex-wrap:wrap}
+  .cal-nav-left{gap:4px;flex-wrap:wrap}
+  .cal-month{font-size:1rem}
+  .cal-summary{font-size:.67rem;margin-left:4px}
+  .cal-today-btn{font-size:.72rem;padding:2px 8px}
+  .cal-btn{width:26px;height:26px;font-size:1.1rem}
+
+  /* Calendar legend */
+  .cal-legend{gap:6px;padding:5px 10px}
+  .cal-leg-item{font-size:.67rem}
+  .cal-leg-dot{width:7px;height:7px}
+
+  /* Calendar cells — compact */
+  .cal-cell{min-height:44px;padding:3px 2px 2px;gap:2px}
+  .cal-dn{font-size:.74rem;width:18px;height:18px}
+  .cal-dow{font-size:.6rem;letter-spacing:0;padding:4px 1px}
+  .cal-ev-list{gap:1px;margin-top:1px}
+  .cal-ev{font-size:.6rem}
+  .cal-ev-bar{width:3px;height:9px}
+
+  /* Modal — full-width on phone */
+  .modal-back{padding:12px 10px}
+  .modal{padding:16px 16px;max-height:88vh}
+  .modal-title{font-size:1.1rem}
 
   /* Footer */
-  footer{font-size:.75rem}
-
-  /* Wrap spacing */
-  .wrap{padding-block:20px 36px;gap:24px}
+  footer{font-size:.75rem;padding:16px 0 24px}
+  .bn{font-size:.8rem}
 }
 </style>
 
