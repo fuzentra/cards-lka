@@ -137,12 +137,12 @@ img{max-width:100%}
   max-width:1100px;margin:0 auto;
   padding-inline:max(16px,env(safe-area-inset-left,0px));
   padding-block:28px 48px;
-  display:grid;gap:32px;
+  display:grid;gap:20px;
   min-width:0;
 }
 .wrap>section,.wrap>div{min-width:0}
 
-.section-hd{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.section-hd{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
 .section-title{
   font-family:var(--display);font-weight:800;
   text-transform:uppercase;letter-spacing:.06em;font-size:1.35rem;color:var(--fg);
@@ -302,8 +302,8 @@ img{max-width:100%}
 /* Count summary below calendar */
 .cal-summary{
   font-family:var(--display);font-weight:700;text-transform:uppercase;
-  letter-spacing:.06em;font-size:.78rem;color:var(--muted);
-  flex:1;text-align:center;
+  letter-spacing:.06em;font-size:.72rem;color:var(--muted);
+  margin-left:6px;white-space:nowrap;
 }
 
 /* ── MODAL ── */
@@ -479,8 +479,8 @@ footer a:hover{text-decoration:underline}
           <button class="cal-btn" id="calPrev">&#8249;</button>
           <span class="cal-month" id="calMonthLabel"></span>
           <button class="cal-btn" id="calNext">&#8250;</button>
+          <span class="cal-summary" id="calSummary"></span>
         </div>
-        <span class="cal-summary" id="calSummary"></span>
         <button class="cal-today-btn" id="calTodayBtn">Today</button>
       </div>
       <div class="cal-legend">
@@ -656,7 +656,7 @@ function renderCalendar(){
   const monthOffers=filtered.filter(o=>o.valid_from.slice(0,7)<=monthISO&&o.valid_to.slice(0,7)>=monthISO);
   const uniqueOffers=new Set(monthOffers.map(o=>o.title)).size;
   const sumEl=document.getElementById('calSummary');
-  sumEl.textContent=MONTHS[calM].toUpperCase()+' '+calY+' · '+uniqueOffers+' OFFER'+(uniqueOffers!==1?'S':'')+' ACTIVE';
+  sumEl.textContent=uniqueOffers+' OFFER'+(uniqueOffers!==1?'S':'')+' ACTIVE';
 }
 
 // Returns true if offer applies to this specific date (handles days_of_week)
