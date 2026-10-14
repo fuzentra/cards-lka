@@ -389,69 +389,73 @@ footer a:hover{text-decoration:underline}
 
 /* ── RESPONSIVE ── */
 @media(max-width:680px){
-  /* Header — tighter vertical rhythm */
-  .site-header{padding:18px max(16px,env(safe-area-inset-left,0px)) 16px}
-  .site-header h1{font-size:clamp(1.7rem,9vw,2.4rem);margin-bottom:8px}
-  .header-sub{font-size:.83rem;margin-bottom:10px}
-  .header-refresh{font-size:.75rem}
-  .eyebrow{font-size:.76rem;margin-bottom:6px}
+  /* Header — comfortable, readable */
+  .site-header{padding:20px max(16px,env(safe-area-inset-left,0px)) 18px}
+  .site-header h1{font-size:clamp(2rem,10vw,2.8rem);margin-bottom:10px}
+  .header-sub{font-size:.9rem;margin-bottom:10px}
+  .header-refresh{font-size:.8rem}
+  .eyebrow{font-size:.8rem;margin-bottom:8px}
 
-  /* Filter bar — label above, chips scroll horizontally (no wrap) */
-  .filter-bar{padding-block:6px}
-  .filter-row{grid-template-columns:1fr;gap:3px}
-  .filter-label{padding-top:0;font-size:.7rem}
-  .chip{font-size:.76rem;padding:4px 10px;white-space:nowrap}
-  .chips{gap:5px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  /* Filter bar — label above, chips scroll horizontally */
+  .filter-bar{padding-block:8px}
+  .filter-inner{gap:6px}
+  .filter-row{grid-template-columns:1fr;gap:4px}
+  .filter-label{padding-top:0;font-size:.75rem;letter-spacing:.08em}
+  .chip{font-size:.82rem;padding:6px 14px;white-space:nowrap}
+  .chips{gap:6px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
     scrollbar-width:none;padding-bottom:2px}
   .chips::-webkit-scrollbar{display:none}
 
   /* Disclaimer */
-  .disclaimer{padding-block:8px}
-  .disc-icon{font-size:13px}
-  .disc-text{font-size:.75rem}
+  .disclaimer{padding-block:10px}
+  .disc-text{font-size:.8rem}
 
-  /* Wrap — tighter top, sensible gap */
-  .wrap{padding-block:16px 32px;gap:16px}
-  .section-title{font-size:1.15rem}
+  /* Wrap */
+  .wrap{padding-block:18px 32px;gap:20px}
+  .section-hd{margin-bottom:12px}
+  .section-title{font-size:1.25rem}
+  .section-sub{font-size:.88rem}
 
-  /* Marquee — narrower cards */
-  .deal{width:175px;padding:10px 11px}
-  .deal-title{font-size:.8rem}
-  .disc-chip{font-size:.9rem}
+  /* Today's Deals — taller cards, readable */
+  .deal{width:200px;padding:12px 13px}
+  .deal-title{font-size:.88rem}
+  .deal-merchant{font-size:.82rem}
+  .disc-chip{font-size:1rem}
+  .bank-tag{font-size:.75rem}
+  .cat-pill,.deal-date{font-size:.75rem}
 
-  /* Calendar nav — allow summary to wrap below on very small screens */
-  .cal-nav{padding:10px 12px;gap:6px;flex-wrap:wrap}
-  .cal-nav-left{gap:4px;flex-wrap:wrap}
-  .cal-month{font-size:1rem}
-  .cal-summary{font-size:.67rem;margin-left:4px}
-  .cal-today-btn{font-size:.72rem;padding:2px 8px}
-  .cal-btn{width:26px;height:26px;font-size:1.1rem}
+  /* Calendar nav */
+  .cal-nav{padding:12px 14px;gap:8px}
+  .cal-nav-left{gap:6px}
+  .cal-month{font-size:1.1rem}
+  .cal-summary{font-size:.7rem;margin-left:6px}
+  .cal-today-btn{font-size:.78rem;padding:4px 10px}
+  .cal-btn{width:30px;height:30px;font-size:1.2rem}
 
   /* Calendar legend */
-  .cal-legend{gap:6px;padding:5px 10px}
-  .cal-leg-item{font-size:.67rem}
-  .cal-leg-dot{width:7px;height:7px}
+  .cal-legend{gap:8px;padding:8px 14px;flex-wrap:wrap}
+  .cal-leg-item{font-size:.75rem}
+  .cal-leg-dot{width:8px;height:8px}
 
-  /* Calendar cells — compact; hide text labels, show bars only */
-  .cal-cell{min-height:40px;padding:3px 2px 2px;gap:2px}
-  .cal-dn{font-size:.74rem;width:18px;height:18px}
-  .cal-dow{font-size:.6rem;letter-spacing:0;padding:4px 1px}
-  .cal-ev-list{gap:2px;margin-top:2px;flex-direction:row;flex-wrap:wrap}
+  /* Calendar cells — big day numbers, bars only for events */
+  .cal-cell{min-height:54px;padding:5px 4px 4px;gap:3px}
+  .cal-dn{font-size:.85rem;width:24px;height:24px;font-weight:800}
+  .cal-dow{font-size:.68rem;letter-spacing:.02em;padding:6px 2px}
+  .cal-ev-list{gap:2px;margin-top:3px;flex-direction:row;flex-wrap:wrap}
   .cal-ev{font-size:0;gap:0;padding:0}
-  .cal-ev-bar{width:100%;height:4px;border-radius:2px;flex-shrink:0}
+  .cal-ev-bar{width:100%;height:5px;border-radius:2px;flex-shrink:0}
   .cal-ev-text{display:none}
 
-  /* Modal — full-width on phone */
-  .modal-back{padding:12px 10px}
-  .modal{padding:16px 16px;max-height:88vh}
-  .modal-title{font-size:1.1rem}
+  /* Modal */
+  .modal-back{padding:16px 12px}
+  .modal{padding:20px 18px;max-height:90vh}
+  .modal-title{font-size:1.2rem}
+  .modal-disc{font-size:1.2rem}
+  .modal-item{padding:14px 16px}
 
   /* Footer */
-  footer{font-size:.75rem;padding:12px 0 20px}
-  .bn{font-size:.8rem}
-
-  /* Kill bottom whitespace */
-  .wrap{padding-block:14px 24px}
+  footer{font-size:.8rem;padding:16px 0 24px}
+  .bn{font-size:.85rem}
 }
 </style>
 
