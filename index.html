@@ -387,75 +387,100 @@ footer a:hover{text-decoration:underline}
 .bn a{color:var(--brand);font-weight:800}
 .gold::before{content:'●';color:var(--gold);margin-left:6px;font-size:1rem}
 
+/* ── MOBILE DAY LIST (replaces calendar grid on small screens) ── */
+.mob-day-list{display:none}
+.mob-day-card{
+  background:var(--surface);border:1px solid var(--line);
+  border-radius:8px;padding:14px 16px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.mob-day-hd{display:flex;align-items:baseline;gap:10px}
+.mob-day-num{
+  font-family:var(--display);font-weight:800;font-size:2rem;
+  color:var(--fg);line-height:1;
+}
+.mob-day-num.is-today{color:var(--brand)}
+.mob-day-label{font-family:var(--display);font-weight:700;font-size:.9rem;
+  text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.mob-day-label.is-today{color:var(--brand)}
+.mob-offer-pill{
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg);border-radius:6px;padding:10px 12px;
+  border-left:4px solid var(--c,var(--brand));
+  cursor:pointer;
+}
+.mob-offer-pill:active{opacity:.75}
+.mob-pill-left{flex:1;min-width:0}
+.mob-pill-bank{font-family:var(--display);font-weight:700;font-size:.75rem;
+  text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:2px}
+.mob-pill-title{font-weight:700;font-size:.92rem;color:var(--fg);line-height:1.3}
+.mob-pill-merchant{font-size:.8rem;color:var(--muted);margin-top:2px}
+.mob-pill-disc{
+  font-family:var(--display);font-weight:800;font-size:1.1rem;
+  color:var(--c,var(--brand));white-space:nowrap;flex-shrink:0;
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:800px){
-  /* Header — comfortable, readable */
+  /* Header */
   .site-header{padding:20px max(16px,env(safe-area-inset-left,0px)) 18px}
   .site-header h1{font-size:clamp(2rem,10vw,2.8rem);margin-bottom:10px}
   .header-sub{font-size:.9rem;margin-bottom:10px}
-  .header-refresh{font-size:.8rem}
+  .header-refresh{font-size:.82rem}
   .eyebrow{font-size:.8rem;margin-bottom:8px}
 
-  /* Filter bar — label above, chips scroll horizontally */
-  .filter-bar{padding-block:8px}
-  .filter-inner{gap:6px}
-  .filter-row{grid-template-columns:1fr;gap:4px}
-  .filter-label{padding-top:0;font-size:.75rem;letter-spacing:.08em}
-  .chip{font-size:.82rem;padding:6px 14px;white-space:nowrap}
-  .chips{gap:6px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  /* Filter chips — scroll horizontal */
+  .filter-bar{padding-block:10px}
+  .filter-inner{gap:8px}
+  .filter-row{grid-template-columns:1fr;gap:5px}
+  .filter-label{padding-top:0;font-size:.78rem;letter-spacing:.08em}
+  .chip{font-size:.86rem;padding:7px 16px;white-space:nowrap}
+  .chips{gap:7px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
     scrollbar-width:none;padding-bottom:2px}
   .chips::-webkit-scrollbar{display:none}
 
   /* Disclaimer */
   .disclaimer{padding-block:10px}
-  .disc-text{font-size:.8rem}
+  .disc-text{font-size:.82rem}
 
   /* Wrap */
   .wrap{padding-block:18px 32px;gap:20px}
-  .section-hd{margin-bottom:12px}
-  .section-title{font-size:1.25rem}
-  .section-sub{font-size:.88rem}
+  .section-hd{margin-bottom:14px}
+  .section-title{font-size:1.3rem}
+  .section-sub{font-size:.9rem}
 
-  /* Today's Deals — taller cards, readable */
-  .deal{width:200px;padding:12px 13px}
-  .deal-title{font-size:.88rem}
-  .deal-merchant{font-size:.82rem}
-  .disc-chip{font-size:1rem}
-  .bank-tag{font-size:.75rem}
-  .cat-pill,.deal-date{font-size:.75rem}
+  /* Today's deals marquee cards */
+  .deal{width:210px;padding:13px 14px}
+  .deal-title{font-size:.9rem}
+  .deal-merchant{font-size:.83rem}
+  .disc-chip{font-size:1.05rem}
+  .bank-tag{font-size:.77rem}
+  .cat-pill,.deal-date{font-size:.77rem}
 
-  /* Calendar nav */
-  .cal-nav{padding:12px 14px;gap:8px}
-  .cal-nav-left{gap:6px}
-  .cal-month{font-size:1.1rem}
-  .cal-summary{font-size:.7rem;margin-left:6px}
-  .cal-today-btn{font-size:.78rem;padding:4px 10px}
-  .cal-btn{width:30px;height:30px;font-size:1.2rem}
+  /* Calendar — hide the grid, show day list */
+  .cal-wrap{display:none}
+  .mob-day-list{display:flex;flex-direction:column;gap:10px}
 
-  /* Calendar legend */
-  .cal-legend{gap:8px;padding:8px 14px;flex-wrap:wrap}
-  .cal-leg-item{font-size:.75rem}
-  .cal-leg-dot{width:8px;height:8px}
-
-  /* Calendar cells — big day numbers, bars only for events */
-  .cal-cell{min-height:54px;padding:5px 4px 4px;gap:3px}
-  .cal-dn{font-size:.85rem;width:24px;height:24px;font-weight:800}
-  .cal-dow{font-size:.68rem;letter-spacing:.02em;padding:6px 2px}
-  .cal-ev-list{gap:2px;margin-top:3px;flex-direction:row;flex-wrap:wrap}
-  .cal-ev{font-size:0;gap:0;padding:0}
-  .cal-ev-bar{width:100%;height:5px;border-radius:2px;flex-shrink:0}
-  .cal-ev-text{display:none}
-
-  /* Modal */
-  .modal-back{padding:16px 12px}
-  .modal{padding:20px 18px;max-height:90vh}
-  .modal-title{font-size:1.2rem}
-  .modal-disc{font-size:1.2rem}
+  /* Modal — bottom sheet on mobile */
+  .modal-back{padding:0;align-items:flex-end}
+  .modal{
+    border-radius:16px 16px 0 0;border-bottom:none;
+    max-width:100%;max-height:85vh;
+    padding:20px 20px 32px;
+    animation:slide-up .22s ease;
+  }
+  @keyframes slide-up{from{transform:translateY(60px);opacity:0}to{transform:none;opacity:1}}
+  .modal-title{font-size:1.25rem}
+  .modal-disc{font-size:1.3rem}
   .modal-item{padding:14px 16px}
+  .modal-item .bank-tag{font-size:.82rem}
+  .modal-item [style*="font-weight:700"]{font-size:1rem!important}
+  .modal-item [style*=".8rem"]{font-size:.88rem!important}
+  .modal-item a{font-size:.9rem!important}
 
   /* Footer */
-  footer{font-size:.8rem;padding:16px 0 24px}
-  .bn{font-size:.85rem}
+  footer{font-size:.82rem;padding:16px 0 24px}
+  .bn{font-size:.88rem}
 }
 </style>
 
@@ -515,6 +540,7 @@ footer a:hover{text-decoration:underline}
       <span class="section-title">Monthly Calendar</span>
       <span class="section-sub">Tap a date to see active offers</span>
     </div>
+    <!-- Desktop: full grid calendar -->
     <div class="cal-wrap">
       <div class="cal-nav">
         <div class="cal-nav-left">
@@ -534,6 +560,8 @@ footer a:hover{text-decoration:underline}
       </div>
       <div class="cal-grid" id="calGrid"></div>
     </div>
+    <!-- Mobile: vertical day list -->
+    <div class="mob-day-list" id="mobDayList"></div>
   </section>
 
   <!-- DISCLAIMER -->
@@ -776,6 +804,63 @@ function openModal(iso,offers){
 document.getElementById('modalX').onclick=()=>document.getElementById('modalBack').classList.remove('open');
 document.getElementById('modalBack').onclick=e=>{if(e.target===document.getElementById('modalBack'))document.getElementById('modalBack').classList.remove('open')};
 
+// ── MOBILE DAY LIST ──────────────────────────────────────────────────────────
+const CAT_CSS_VAR={Dining:'var(--dining)',Shopping:'var(--shopping)',Travel:'var(--travel)',Health:'var(--health)',Other:'var(--other)'};
+const DAYS_SHOWN=14; // show next 14 days with offers
+
+function renderMobDayList(){
+  const list=document.getElementById('mobDayList');
+  list.innerHTML='';
+  const DAY_NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const MONTH_NAMES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Collect days from today forward that have offers
+  let days=[];
+  const cursor=new Date(today);
+  for(let i=0;i<62&&days.length<DAYS_SHOWN;i++){
+    const iso=cursor.toISOString().slice(0,10);
+    const offers=filtered.filter(o=>offerOnDate(o,iso));
+    if(offers.length) days.push({iso,date:new Date(cursor),offers});
+    cursor.setDate(cursor.getDate()+1);
+  }
+
+  if(!days.length){
+    list.innerHTML='<p style="color:var(--muted);font-size:.95rem;padding:8px 0">No upcoming offers match the current filter.</p>';
+    return;
+  }
+
+  days.forEach(({iso,date,offers})=>{
+    const isToday=iso===todayISO;
+    const card=document.createElement('div');
+    card.className='mob-day-card';
+
+    const hd=document.createElement('div');hd.className='mob-day-hd';
+    const num=document.createElement('div');num.className='mob-day-num'+(isToday?' is-today':'');
+    num.textContent=date.getDate();
+    const lbl=document.createElement('div');lbl.className='mob-day-label'+(isToday?' is-today':'');
+    lbl.textContent=(isToday?'Today · ':'')+DAY_NAMES[date.getDay()]+', '+MONTH_NAMES[date.getMonth()]+' '+date.getFullYear();
+    hd.appendChild(num);hd.appendChild(lbl);
+    card.appendChild(hd);
+
+    offers.forEach(o=>{
+      const pill=document.createElement('div');
+      pill.className='mob-offer-pill';
+      pill.style.setProperty('--c',CAT_CSS_VAR[o.category]||'var(--brand)');
+      pill.innerHTML=`
+        <div class="mob-pill-left">
+          <div class="mob-pill-bank">${o.bank}</div>
+          <div class="mob-pill-title">${o.title}</div>
+          ${o.merchant?`<div class="mob-pill-merchant">${o.merchant}</div>`:''}
+        </div>
+        <div class="mob-pill-disc">${o.discount}</div>`;
+      pill.onclick=()=>openModal(iso,offers);
+      card.appendChild(pill);
+    });
+
+    list.appendChild(card);
+  });
+}
+
 function buildBankChips(){
   const container=document.getElementById('bankChips');
   BANKS.forEach(({id,name})=>{
@@ -789,7 +874,7 @@ function applyFilter(){
   filtered=allOffers.filter(o=>
     (activeCat==='all'||o.category===activeCat)&&(activeBank==='all'||o.bank_id===activeBank)
   );
-  renderMarquee();renderCalendar();
+  renderMarquee();renderCalendar();renderMobDayList();
 }
 
 document.addEventListener('click',e=>{
