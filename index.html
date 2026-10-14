@@ -402,15 +402,13 @@ footer a:hover{text-decoration:underline}
   .header-refresh{font-size:.82rem}
   .eyebrow{font-size:.8rem;margin-bottom:8px}
 
-  /* Filter chips — scroll horizontal */
-  .filter-bar{padding-block:10px}
-  .filter-inner{gap:8px}
-  .filter-row{grid-template-columns:1fr;gap:5px}
-  .filter-label{padding-top:0;font-size:.78rem;letter-spacing:.08em}
-  .chip{font-size:.86rem;padding:7px 16px;white-space:nowrap}
-  .chips{gap:7px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;padding-bottom:2px}
-  .chips::-webkit-scrollbar{display:none}
+  /* Filter chips — wrap to multiple lines */
+  .filter-bar{padding-block:12px}
+  .filter-inner{gap:10px}
+  .filter-row{grid-template-columns:1fr;gap:6px}
+  .filter-label{padding-top:0;font-size:.82rem;letter-spacing:.08em}
+  .chip{font-size:.9rem;padding:8px 16px;white-space:nowrap}
+  .chips{gap:8px;flex-wrap:wrap;overflow-x:visible}
 
   /* Disclaimer */
   .disclaimer{padding-block:10px}
@@ -422,13 +420,13 @@ footer a:hover{text-decoration:underline}
   .section-title{font-size:1.3rem}
   .section-sub{font-size:.9rem}
 
-  /* Today's deals marquee cards */
-  .deal{width:210px;padding:13px 14px}
-  .deal-title{font-size:.9rem}
-  .deal-merchant{font-size:.83rem}
-  .disc-chip{font-size:1.05rem}
-  .bank-tag{font-size:.77rem}
-  .cat-pill,.deal-date{font-size:.77rem}
+  /* Today's deals marquee cards — bigger on mobile */
+  .deal{width:260px;padding:16px 16px}
+  .deal-title{font-size:1rem}
+  .deal-merchant{font-size:.9rem}
+  .disc-chip{font-size:1.2rem}
+  .bank-tag{font-size:.84rem}
+  .cat-pill,.deal-date{font-size:.82rem}
 
   /* Calendar — compact grid with count bubbles */
   .cal-wrap{display:block}
