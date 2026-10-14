@@ -396,12 +396,14 @@ footer a:hover{text-decoration:underline}
   .header-refresh{font-size:.75rem}
   .eyebrow{font-size:.76rem;margin-bottom:6px}
 
-  /* Filter bar — stack label above chips */
-  .filter-bar{padding-block:8px}
-  .filter-row{grid-template-columns:1fr;gap:4px}
+  /* Filter bar — label above, chips scroll horizontally (no wrap) */
+  .filter-bar{padding-block:6px}
+  .filter-row{grid-template-columns:1fr;gap:3px}
   .filter-label{padding-top:0;font-size:.7rem}
-  .chip{font-size:.76rem;padding:4px 10px}
-  .chips{gap:5px}
+  .chip{font-size:.76rem;padding:4px 10px;white-space:nowrap}
+  .chips{gap:5px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;padding-bottom:2px}
+  .chips::-webkit-scrollbar{display:none}
 
   /* Disclaimer */
   .disclaimer{padding-block:8px}
@@ -430,13 +432,14 @@ footer a:hover{text-decoration:underline}
   .cal-leg-item{font-size:.67rem}
   .cal-leg-dot{width:7px;height:7px}
 
-  /* Calendar cells — compact */
-  .cal-cell{min-height:44px;padding:3px 2px 2px;gap:2px}
+  /* Calendar cells — compact; hide text labels, show bars only */
+  .cal-cell{min-height:40px;padding:3px 2px 2px;gap:2px}
   .cal-dn{font-size:.74rem;width:18px;height:18px}
   .cal-dow{font-size:.6rem;letter-spacing:0;padding:4px 1px}
-  .cal-ev-list{gap:1px;margin-top:1px}
-  .cal-ev{font-size:.6rem}
-  .cal-ev-bar{width:3px;height:9px}
+  .cal-ev-list{gap:2px;margin-top:2px;flex-direction:row;flex-wrap:wrap}
+  .cal-ev{font-size:0;gap:0;padding:0}
+  .cal-ev-bar{width:100%;height:4px;border-radius:2px;flex-shrink:0}
+  .cal-ev-text{display:none}
 
   /* Modal — full-width on phone */
   .modal-back{padding:12px 10px}
@@ -444,8 +447,11 @@ footer a:hover{text-decoration:underline}
   .modal-title{font-size:1.1rem}
 
   /* Footer */
-  footer{font-size:.75rem;padding:16px 0 24px}
+  footer{font-size:.75rem;padding:12px 0 20px}
   .bn{font-size:.8rem}
+
+  /* Kill bottom whitespace */
+  .wrap{padding-block:14px 24px}
 }
 </style>
 
