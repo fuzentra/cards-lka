@@ -301,10 +301,9 @@ img{max-width:100%}
 
 /* Count summary below calendar */
 .cal-summary{
-  padding:10px 16px;border-top:1px solid var(--line);
   font-family:var(--display);font-weight:700;text-transform:uppercase;
-  letter-spacing:.06em;font-size:.85rem;color:var(--muted);
-  background:var(--bg);
+  letter-spacing:.06em;font-size:.78rem;color:var(--muted);
+  flex:1;text-align:center;
 }
 
 /* ── MODAL ── */
@@ -484,6 +483,7 @@ img{max-width:100%}
           <span class="cal-month" id="calMonthLabel"></span>
           <button class="cal-btn" id="calNext">&#8250;</button>
         </div>
+        <span class="cal-summary" id="calSummary"></span>
         <button class="cal-today-btn" id="calTodayBtn">Today</button>
       </div>
       <div class="cal-legend">
@@ -494,26 +494,25 @@ img{max-width:100%}
         <div class="cal-leg-item"><span class="cal-leg-dot" style="background:var(--other)"></span>Other</div>
       </div>
       <div class="cal-grid" id="calGrid"></div>
-      <div class="cal-summary" id="calSummary"></div>
     </div>
   </section>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <div class="disclaimer-inner">
+      <span class="disc-icon">⚠️</span>
+      <p class="disc-text">
+        <strong>Independent aggregation only.</strong> This page is not affiliated with, endorsed by, or acting on behalf of any bank or financial institution. All promotion details are sourced from publicly available information on official bank websites and remain the intellectual property of the respective banks. Details may be incomplete, inaccurate, or subject to change without notice. <strong>Always verify current terms, conditions, and eligibility directly with your bank before redeeming any offer.</strong> The publishers accept no liability for any loss or inconvenience arising from reliance on this information.
+      </p>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <div class="brandfoot">
     <div class="brandfoot-line1">A <a href="https://fuzentra.com" target="_blank" rel="noopener">fuzentra</a> initiative <span class="brandfoot-goldot">●</span></div>
-    <p class="brandfoot-copy">© 2026 fuzentra. Offer details are sourced from official bank websites and are the property of their respective institutions.</p>
+    <p class="brandfoot-copy">© 2026 fuzentra.</p>
   </div>
 
-</div>
-
-<!-- DISCLAIMER -->
-<div class="disclaimer">
-  <div class="disclaimer-inner">
-    <span class="disc-icon">⚠️</span>
-    <p class="disc-text">
-      <strong>Independent aggregation only.</strong> This page is not affiliated with, endorsed by, or acting on behalf of any bank or financial institution. All promotion details are sourced from publicly available information on official bank websites and are the intellectual property of the respective banks. Information may be incomplete, inaccurate, or subject to change without notice. <strong>Always verify current terms, conditions, and eligibility directly with your bank before redeeming any offer.</strong> The publishers accept no liability for any loss or inconvenience arising from reliance on information published here.
-    </p>
-  </div>
 </div>
 
 <!-- MODAL -->
@@ -657,7 +656,7 @@ function renderCalendar(){
   const monthOffers=filtered.filter(o=>o.valid_from.slice(0,7)<=monthISO&&o.valid_to.slice(0,7)>=monthISO);
   const uniqueOffers=new Set(monthOffers.map(o=>o.title)).size;
   const sumEl=document.getElementById('calSummary');
-  sumEl.textContent=MONTHS[calM]+' '+calY+' · '+uniqueOffers+' offer'+(uniqueOffers!==1?'s':'')+' active';
+  sumEl.textContent=MONTHS[calM].toUpperCase()+' '+calY+' · '+uniqueOffers+' OFFER'+(uniqueOffers!==1?'S':'')+' ACTIVE';
 }
 
 // Returns true if offer applies to this specific date (handles days_of_week)
