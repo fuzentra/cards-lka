@@ -368,22 +368,19 @@ img{max-width:100%}
 .cat-health   {--c:var(--health);--cb:var(--health-bg)}
 .cat-other    {--c:var(--other);--cb:var(--other-bg)}
 
-/* ── BRAND FOOTER ── */
-.brandfoot{
-  border-top:3px solid var(--brand);
-  padding-top:14px;margin-top:4px;
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--line);
+  padding:20px 0 28px;margin-top:8px;
+  font-size:.8rem;color:var(--muted);line-height:1.6;
 }
-.brandfoot-line1{
-  display:flex;align-items:center;gap:8px;
-  font-size:.92rem;font-weight:700;color:var(--fg);
-  margin-bottom:6px;
-}
-.brandfoot-line1 a{color:var(--brand);text-decoration:none;font-weight:800}
-.brandfoot-line1 a:hover{text-decoration:underline}
-.brandfoot-goldot{color:var(--gold);font-size:1.1rem;line-height:1}
-.brandfoot-copy{
-  font-size:.78rem;color:var(--muted);line-height:1.55;max-width:72ch;
-}
+footer p{max-width:72ch;margin-bottom:14px}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.brandfoot{margin-top:6px}
+.bn{font-size:.85rem;font-weight:700;color:var(--fg);margin-bottom:2px!important}
+.bn a{color:var(--brand);font-weight:800}
+.gold::before{content:'●';color:var(--gold);margin-left:6px;font-size:1rem}
 
 /* ── RESPONSIVE ── */
 @media(max-width:680px){
@@ -413,7 +410,7 @@ img{max-width:100%}
   .cal-leg-item{font-size:.7rem}
 
   /* Footer */
-  .brandfoot-copy{font-size:.74rem}
+  footer{font-size:.75rem}
 
   /* Wrap spacing */
   .wrap{padding-block:20px 36px;gap:24px}
@@ -508,10 +505,13 @@ img{max-width:100%}
   </div>
 
   <!-- FOOTER -->
-  <div class="brandfoot">
-    <div class="brandfoot-line1">A <a href="https://fuzentra.com" target="_blank" rel="noopener">fuzentra</a> initiative <span class="brandfoot-goldot">●</span></div>
-    <p class="brandfoot-copy">© 2026 fuzentra.</p>
-  </div>
+  <footer>
+    <p>Promotion details are compiled from official bank websites and may change without notice. Always confirm current terms, conditions, and eligibility directly with your bank before redeeming any offer. Spotted a missing deal? <a href="https://wa.me/94741841741?text=Hi%2C%0AI%27d%20like%20to%20suggest%20a%20credit%20card%20offer%20for%20the%20Sri%20Lanka%20Card%20Deals%20page%3A%0A%0ABank%3A%20%0AOffer%3A%20%0AValid%20until%3A%20%0ALink%3A%20%0A%0AThank%20you%21" target="_blank" rel="noopener">Let us know</a> and we'll add it in the next nightly update.</p>
+    <div class="brandfoot">
+      <p class="bn">A <a href="https://fuzentra.com" target="_blank" rel="noopener">fuzentra</a> initiative<i class="gold" aria-hidden="true"></i></p>
+      <p>© 2026 fuzentra.</p>
+    </div>
+  </footer>
 
 </div>
 
