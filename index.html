@@ -387,38 +387,11 @@ footer a:hover{text-decoration:underline}
 .bn a{color:var(--brand);font-weight:800}
 .gold::before{content:'●';color:var(--gold);margin-left:6px;font-size:1rem}
 
-/* ── MOBILE DAY LIST (replaces calendar grid on small screens) ── */
+/* ── COUNT BUBBLE (mobile only) ── */
+.cal-count{display:none}
+
+/* ── MOBILE DAY LIST (not used currently) ── */
 .mob-day-list{display:none}
-.mob-day-card{
-  background:var(--surface);border:1px solid var(--line);
-  border-radius:8px;padding:14px 16px;
-  display:flex;flex-direction:column;gap:10px;
-}
-.mob-day-hd{display:flex;align-items:baseline;gap:10px}
-.mob-day-num{
-  font-family:var(--display);font-weight:800;font-size:2rem;
-  color:var(--fg);line-height:1;
-}
-.mob-day-num.is-today{color:var(--brand)}
-.mob-day-label{font-family:var(--display);font-weight:700;font-size:.9rem;
-  text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
-.mob-day-label.is-today{color:var(--brand)}
-.mob-offer-pill{
-  display:flex;align-items:center;gap:10px;
-  background:var(--bg);border-radius:6px;padding:10px 12px;
-  border-left:4px solid var(--c,var(--brand));
-  cursor:pointer;
-}
-.mob-offer-pill:active{opacity:.75}
-.mob-pill-left{flex:1;min-width:0}
-.mob-pill-bank{font-family:var(--display);font-weight:700;font-size:.75rem;
-  text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:2px}
-.mob-pill-title{font-weight:700;font-size:.92rem;color:var(--fg);line-height:1.3}
-.mob-pill-merchant{font-size:.8rem;color:var(--muted);margin-top:2px}
-.mob-pill-disc{
-  font-family:var(--display);font-weight:800;font-size:1.1rem;
-  color:var(--c,var(--brand));white-space:nowrap;flex-shrink:0;
-}
 
 /* ── RESPONSIVE ── */
 @media(max-width:800px){
@@ -457,9 +430,30 @@ footer a:hover{text-decoration:underline}
   .bank-tag{font-size:.77rem}
   .cat-pill,.deal-date{font-size:.77rem}
 
-  /* Calendar — hide the grid, show day list */
-  .cal-wrap{display:none}
-  .mob-day-list{display:flex;flex-direction:column;gap:10px}
+  /* Calendar — compact grid with count bubbles */
+  .cal-wrap{display:block}
+  .mob-day-list{display:none}
+  .cal-nav{padding:10px 14px}
+  .cal-nav-left{gap:6px}
+  .cal-month{font-size:1.05rem}
+  .cal-summary{font-size:.7rem;margin-left:6px}
+  .cal-today-btn{font-size:.78rem;padding:4px 10px}
+  .cal-btn{width:28px;height:28px;font-size:1.1rem}
+  .cal-legend{gap:8px;padding:7px 14px}
+  .cal-leg-item{font-size:.76rem}
+  .cal-leg-dot{width:8px;height:8px}
+  .cal-dow{font-size:.65rem;padding:5px 2px}
+  .cal-cell{min-height:52px;padding:5px 4px 4px;gap:2px;cursor:pointer}
+  .cal-dn{font-size:.85rem;width:22px;height:22px;font-weight:800}
+  /* hide category bars, show count bubble instead */
+  .cal-ev-list{display:none}
+  .cal-count{
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:800;font-size:.72rem;
+    background:var(--brand);color:#fff;
+    border-radius:99px;min-width:20px;height:18px;padding:0 5px;
+    margin-top:3px;align-self:flex-start;line-height:1;
+  }
 
   /* Modal — bottom sheet on mobile */
   .modal-back{padding:0;align-items:flex-end}
@@ -560,8 +554,6 @@ footer a:hover{text-decoration:underline}
       </div>
       <div class="cal-grid" id="calGrid"></div>
     </div>
-    <!-- Mobile: vertical day list -->
-    <div class="mob-day-list" id="mobDayList"></div>
   </section>
 
   <!-- DISCLAIMER -->
@@ -753,7 +745,7 @@ function calCell(day,other,isToday=false,iso=null){
     const ofDay=filtered.filter(o=>offerOnDate(o,iso));
     if(ofDay.length){
       cell.classList.add('has-offers');
-      // Group by category — one bar per category, up to 4
+      // Colour bars — one per category
       const cats=[...new Set(ofDay.map(o=>o.category))];
       const evList=document.createElement('div');evList.className='cal-ev-list';
       cats.slice(0,4).forEach(cat=>{
@@ -771,6 +763,11 @@ function calCell(day,other,isToday=false,iso=null){
         evList.appendChild(ev);
       });
       cell.appendChild(evList);
+      // Count bubble (shown via CSS only on mobile)
+      const bubble=document.createElement('div');
+      bubble.className='cal-count';
+      bubble.textContent=ofDay.length;
+      cell.appendChild(bubble);
       cell.onclick=()=>openModal(iso,ofDay);
     }
   }
@@ -804,63 +801,6 @@ function openModal(iso,offers){
 document.getElementById('modalX').onclick=()=>document.getElementById('modalBack').classList.remove('open');
 document.getElementById('modalBack').onclick=e=>{if(e.target===document.getElementById('modalBack'))document.getElementById('modalBack').classList.remove('open')};
 
-// ── MOBILE DAY LIST ──────────────────────────────────────────────────────────
-const CAT_CSS_VAR={Dining:'var(--dining)',Shopping:'var(--shopping)',Travel:'var(--travel)',Health:'var(--health)',Other:'var(--other)'};
-const DAYS_SHOWN=14; // show next 14 days with offers
-
-function renderMobDayList(){
-  const list=document.getElementById('mobDayList');
-  list.innerHTML='';
-  const DAY_NAMES=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const MONTH_NAMES=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-
-  // Collect days from today forward that have offers
-  let days=[];
-  const cursor=new Date(today);
-  for(let i=0;i<62&&days.length<DAYS_SHOWN;i++){
-    const iso=cursor.toISOString().slice(0,10);
-    const offers=filtered.filter(o=>offerOnDate(o,iso));
-    if(offers.length) days.push({iso,date:new Date(cursor),offers});
-    cursor.setDate(cursor.getDate()+1);
-  }
-
-  if(!days.length){
-    list.innerHTML='<p style="color:var(--muted);font-size:.95rem;padding:8px 0">No upcoming offers match the current filter.</p>';
-    return;
-  }
-
-  days.forEach(({iso,date,offers})=>{
-    const isToday=iso===todayISO;
-    const card=document.createElement('div');
-    card.className='mob-day-card';
-
-    const hd=document.createElement('div');hd.className='mob-day-hd';
-    const num=document.createElement('div');num.className='mob-day-num'+(isToday?' is-today':'');
-    num.textContent=date.getDate();
-    const lbl=document.createElement('div');lbl.className='mob-day-label'+(isToday?' is-today':'');
-    lbl.textContent=(isToday?'Today · ':'')+DAY_NAMES[date.getDay()]+', '+MONTH_NAMES[date.getMonth()]+' '+date.getFullYear();
-    hd.appendChild(num);hd.appendChild(lbl);
-    card.appendChild(hd);
-
-    offers.forEach(o=>{
-      const pill=document.createElement('div');
-      pill.className='mob-offer-pill';
-      pill.style.setProperty('--c',CAT_CSS_VAR[o.category]||'var(--brand)');
-      pill.innerHTML=`
-        <div class="mob-pill-left">
-          <div class="mob-pill-bank">${o.bank}</div>
-          <div class="mob-pill-title">${o.title}</div>
-          ${o.merchant?`<div class="mob-pill-merchant">${o.merchant}</div>`:''}
-        </div>
-        <div class="mob-pill-disc">${o.discount}</div>`;
-      pill.onclick=()=>openModal(iso,offers);
-      card.appendChild(pill);
-    });
-
-    list.appendChild(card);
-  });
-}
-
 function buildBankChips(){
   const container=document.getElementById('bankChips');
   BANKS.forEach(({id,name})=>{
@@ -874,7 +814,7 @@ function applyFilter(){
   filtered=allOffers.filter(o=>
     (activeCat==='all'||o.category===activeCat)&&(activeBank==='all'||o.bank_id===activeBank)
   );
-  renderMarquee();renderCalendar();renderMobDayList();
+  renderMarquee();renderCalendar();
 }
 
 document.addEventListener('click',e=>{
