@@ -21,11 +21,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-          cache: pip
+          python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests beautifulsoup4 lxml
+        run: pip install --break-system-packages requests beautifulsoup4 lxml || pip install requests beautifulsoup4 lxml
 
       - name: Run crawler
         run: python scripts/crawler.py
