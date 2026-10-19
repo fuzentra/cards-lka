@@ -625,7 +625,8 @@ let activeCat='all',activeBank='all';
 let calY,calM;
 
 const today=new Date();today.setHours(0,0,0,0);
-const todayISO=today.toISOString().slice(0,10);
+const _td=new Date();
+const todayISO=`${_td.getFullYear()}-${String(_td.getMonth()+1).padStart(2,'0')}-${String(_td.getDate()).padStart(2,'0')}`;
 const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const MS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 
