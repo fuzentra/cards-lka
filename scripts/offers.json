@@ -1,19 +1,8 @@
 {
-  "updated": "24 Oct 2026, 23:34",
-  "updated_iso": "2026-10-24T23:34:30.909072",
+  "updated": "25 Oct 2026, 23:29",
+  "updated_iso": "2026-10-25T23:29:47.770315",
   "total": 12,
   "offers": [
-    {
-      "bank": "Seylan Bank",
-      "bank_id": "seylan",
-      "title": "Prasad Textiles",
-      "discount": "10% off",
-      "category": "Other",
-      "merchant": "",
-      "valid_from": "2026-10-24",
-      "valid_to": "2026-10-31",
-      "url": "https://www.seylan.lk/promotions/cards"
-    },
     {
       "bank": "Seylan Bank",
       "bank_id": "seylan",
@@ -21,7 +10,18 @@
       "discount": "20% off",
       "category": "Shopping",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
+      "valid_to": "2026-10-31",
+      "url": "https://www.seylan.lk/promotions/cards"
+    },
+    {
+      "bank": "Seylan Bank",
+      "bank_id": "seylan",
+      "title": "Prasad Textiles",
+      "discount": "10% off",
+      "category": "Other",
+      "merchant": "",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.seylan.lk/promotions/cards"
     },
@@ -32,7 +32,7 @@
       "discount": "30% off",
       "category": "Other",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.seylan.lk/promotions/cards"
     },
@@ -43,7 +43,7 @@
       "discount": "20% off",
       "category": "Other",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.seylan.lk/promotions/cards"
     },
@@ -54,7 +54,7 @@
       "discount": "25% off",
       "category": "Other",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.seylan.lk/promotions/cards"
     },
@@ -65,7 +65,7 @@
       "discount": "Special Offer",
       "category": "Shopping",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.sampath.lk/en/promotions"
     },
@@ -76,7 +76,7 @@
       "discount": "Special Offer",
       "category": "Other",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.sampath.lk/en/promotions"
     },
@@ -87,7 +87,7 @@
       "discount": "Special Offer",
       "category": "Health",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.sampath.lk/en/promotions"
     },
@@ -98,7 +98,7 @@
       "discount": "Special Offer",
       "category": "Travel",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.sampath.lk/en/promotions"
     },
@@ -109,7 +109,7 @@
       "discount": "Special Offer",
       "category": "Other",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.sampath.lk/en/promotions"
     },
@@ -120,7 +120,7 @@
       "discount": "Special Offer",
       "category": "Other",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.sampath.lk/en/promotions"
     },
@@ -131,7 +131,7 @@
       "discount": "Special Offer",
       "category": "Other",
       "merchant": "",
-      "valid_from": "2026-10-24",
+      "valid_from": "2026-10-25",
       "valid_to": "2026-10-31",
       "url": "https://www.sampath.lk/en/promotions"
     }
